@@ -8,11 +8,11 @@ export class PilotoService {
 
   constructor() { }
 
-  salvar() { }
+  salvarPiloto() { }
 
-  editar() { }
+  editarPiloto() { }
 
-  listar() {
+  listarPilotos() {
     return PILOTOS;
   }
 
@@ -20,9 +20,9 @@ export class PilotoService {
     return PILOTOS.length;
   }
 
-  visualizar() { }
+  visualizarPiloto() { }
 
-  excluir() { }
+  excluirPiloto() { }
 
 
 }
