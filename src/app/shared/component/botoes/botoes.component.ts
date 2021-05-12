@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-botoes',
@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BotoesComponent implements OnInit {
 
-  constructor() { }
+  @Input() exibePiloto: boolean = true;
 
-  ngOnInit(): void {
+  @Output() evento = new EventEmitter();
+
+  constructor() {
   }
 
+  ngOnInit(): void {
+    console.log(this.exibePiloto)
+  }
+
+  exibirPilotos() {
+    this.exibePiloto = true;
+    this.evento.emit({ novoValor: true });
+  }
+  ocultarPilotos() {
+    this.exibePiloto = false;
+    this.evento.emit({ novoValor: false });
+  }
 }

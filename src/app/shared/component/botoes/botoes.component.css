@@ -1,7 +1,7 @@
 section {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-content: center;
 }
 
@@ -14,7 +14,7 @@ section {
 
 .example-button-row {
   display: table-cell;
-  width: 490px;
+  width: 33.0;
 }
 
 .example-button-row .mat-button-base {

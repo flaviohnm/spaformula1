@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { PilotoService } from 'src/app/service/piloto.service';
 
@@ -9,10 +9,14 @@ import { PilotoService } from 'src/app/service/piloto.service';
 })
 export class TabelaComponent implements OnInit {
 
+  exibirPilotos: boolean;
+
   constructor(private pilotoService: PilotoService) {
+    this.exibirPilotos = true;
   }
 
   ngOnInit(): void {
+    console.log(this.exibirPilotos)
   }
 
   listaPilotos = this.pilotoService.listarPilotos();
@@ -37,6 +41,11 @@ export class TabelaComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  receberEvento(evento: any) {
+    console.log(evento.novoValor);
+    this.exibirPilotos = evento.novoValor;
   }
 
 }

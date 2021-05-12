@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="exibirPilotos">
   <mat-form-field>
     <mat-label>Filtro</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Lewis" #input>
@@ -87,4 +87,9 @@
       <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
     </tr>
   </table>
+</section>
+
+<section>
+  <app-botoes [exibePiloto]="exibirPilotos" (evento)="receberEvento($event)">
+  </app-botoes>
 </section>
