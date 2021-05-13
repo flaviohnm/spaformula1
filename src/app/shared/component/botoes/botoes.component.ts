@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { PilotoService } from 'src/app/service/piloto.service';
 
 @Component({
   selector: 'app-botoes',
@@ -8,10 +9,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class BotoesComponent implements OnInit {
 
   @Input() exibePiloto: boolean = true;
-
   @Output() evento = new EventEmitter();
 
-  constructor() {
+  pilotos: number = 0;
+
+  constructor(private pilotoService: PilotoService) {
   }
 
   ngOnInit(): void {
@@ -26,4 +28,9 @@ export class BotoesComponent implements OnInit {
     this.exibePiloto = false;
     this.evento.emit({ novoValor: false });
   }
+
+  contarPilotos() {
+    return this.pilotos = this.pilotoService.contarPilotos();
+  }
+
 }
